@@ -1,0 +1,27 @@
+.user_painel{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .painel_wrp{
+        width: 100%;
+        max-width: 900px;
+        overflow-x:hidden;
+        padding:1rem;
+        .painel_btn{
+            all:unset;
+            cursor: pointer;
+            padding:1rem;
+            background-color: var(--button-color);
+            color:var(--text-color-superlight);
+            margin:1rem;
+            transition: .5s;
+        }
+        .painel_btn:last-child{
+            background-color: var(--buton-color-two);
+        }
+        .painel_btn:hover{
+            background-color: var(--highlight-color);
+        }
+    }
+}

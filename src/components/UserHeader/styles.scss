@@ -6,6 +6,13 @@ header{
     align-items: center;
     z-index: 999;
     background-color: var(--header-background);
+    .header_wrp{
+        width: 100%;
+        max-width: 900px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
     nav li{
         display: inline;
         padding:1rem;
@@ -35,6 +42,9 @@ header{
         color:var(--text-color-superlight);
     }
     .avatar{
+        display: flex;
+        justify-content: center;
+        align-items: center;
         .user_avatar{
             width:2.5rem;
             height:2.5rem;
@@ -48,6 +58,13 @@ header{
             img{
                 width:70%;
             }
+        }
+        .user_name{
+            max-width: 10rem;
+            max-height: 1.5rem;
+            color:var(--text-color-superlight);
+            padding:.2rem;
+            overflow: hidden;
         }
     }
 }
