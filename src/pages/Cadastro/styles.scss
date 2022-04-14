@@ -1,0 +1,71 @@
+.main{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .image_banner{
+        height: 90vh;
+        display: flex;
+        overflow: hidden;
+       justify-content: center;
+       align-items: center;
+       background-color: aqua;
+       img{
+           height: 100%;
+       }
+    }
+    .cadastro_wrp{
+        width: 100%;
+        display: grid;
+        justify-content: center;
+        grid-template-rows: 5rem 1fr 5rem;
+        flex-direction: column;
+        .cad_header{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            h2{
+                font-size:2rem;
+                color:var(--button-color);
+                font-weight: bold;
+            }
+
+        }
+        .cad_main{
+            display: flex;
+            flex-direction: column;
+            justify-content: baseline;
+            label{
+                font-size: 1.2rem;
+                font-weight: 500;
+                color:var(--highlight-color)
+            }
+            input{
+                all:unset;
+                width:30rem;
+                height:2rem;
+                border:.009rem solid var(--highlight-color);
+                border-radius: 1rem;
+                margin-bottom:.5rem;
+            }
+            button{
+                background-color: var(--button-color);
+                border:none;
+                padding:1rem;
+                color:var(--text-color-superlight);
+                font-weight: bold;
+                font-size: 1rem;
+                margin-top:1rem;
+                transition: .5s;
+                cursor: pointer;
+            }
+            button:hover{
+                background-color: var(--highlight-color);
+            }
+        }
+        .cad_footer{
+            a{
+                color:var(--text-color-black) ;
+            }
+        }
+    }
+}
