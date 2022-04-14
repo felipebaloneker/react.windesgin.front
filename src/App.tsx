@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login';
 import Cadastro from './pages/Cadastro';
+import UserRoom from './pages/UserRoom';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/cadastro" element={<Cadastro/>}/>
+          <Route path="/meu_painel" element={<UserRoom/>}/>
         </Routes>
       </BrowserRouter>
       </div>
