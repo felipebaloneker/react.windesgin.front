@@ -15,8 +15,8 @@ function UserHeader(){
                 <li><a href="/">Home</a></li>
                 <li><a href="/#about" >Sobre</a></li>
                 <li><a href="/#servicos" >Serviços</a></li>
-                <li><a href="/cadastro" >Cadastro</a></li>
-                <li><a href="/login" className='login' >Login</a></li>
+                <li><a href="/cadastro" >Meus pedidos</a></li>
+                <li><a href="/login" className='log' >Sair</a></li>
             </ul>
         </nav>
         </header>
