@@ -12,26 +12,42 @@ header{
     justify-content: space-around;
     align-items: center;
     z-index: 999;
-    background: var(--background-color);
+    background-color: var(--header-background);
     nav li{
         display: inline;
         padding:1rem;
         
     }
-    li a:hover{
-        color:var(--text-color-black);
-    }
     a{
         text-decoration: none;
-        color:var(--text-color)
+        color:var(--text-color-superlight);
+        transition: .2s ease-out;
+        font-weight: 500;
+    }
+    li a:hover{
+        color:var(--text-color-black);
     }
     .mobile-menu{
         display: none;
     }
-    .cad{
-        border:.1rem solid var(--);
+    .login{
+        border:.1rem solid var(--background-color);
+        color:var(--text-color-black);
+        padding:.5rem;
+        border-radius: .2rem;
+        transition: .5s;
     }
-
+    .login:hover{
+        background-color: var(--background-color);
+        color:var(--text-color-superlight);
+    }
+    .logo{
+        .logo_header{
+            color:var(--text-color-black);
+            font-size:1.5rem;
+            cursor: pointer;
+        }
+    }
 }
 .banner{
     display: grid;
@@ -46,6 +62,23 @@ header{
         padding: 2rem;
         h2{
             font-size: 1.5rem;
+            color: var(--text-color);
+        }
+        p{
+            color:var(--text-color-light)
+        }
+        .register-btn{
+            cursor:pointer;
+            background-color: var(--background-color);
+            color:var(--text-color-superlight);
+            padding: .5rem;
+            border-radius: 2rem;
+            margin:1rem;
+            align-self: flex-end;
+            transition: .5s;
+        }
+        .register-btn:hover{
+            background-color: var(--highlight-color);
         }
     }
     .banner_image{
