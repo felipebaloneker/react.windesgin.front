@@ -1,0 +1,52 @@
+.listOrder{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: .1rem .1rem 1rem var(--highlight-color);
+    border-radius: .2rem;
+    overflow: hidden;
+    .column{
+        width:100%;
+        display: grid;
+        grid-template-columns: repeat(9,1fr);
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background-color: var(--highlight-color);
+        color: var(--text-color-superlight);
+    }
+    .orders{
+        width:100%;
+        height: 25rem;
+        overflow-y: auto;
+        overflow-x: hidden;
+        .order_details{
+            width: 100%;
+            cursor: pointer;
+            height: 2rem;
+            display: flex;
+            justify-content: space-between;
+            overflow: hidden;
+            .order_data{
+                width:100%;
+                max-width: 9rem;
+                height: 1.5rem;
+                display: flex;
+                justify-content: center;
+                overflow: hidden;
+                text-align: center;
+                padding-left: .2rem;
+            }
+            .order_data:first-child{
+                justify-content: flex-start;
+            }
+
+        }
+        .order_details:hover{
+            background-color: var(--highlight-color);
+            color:var(--text-color-superlight)
+        }
+    }
+}

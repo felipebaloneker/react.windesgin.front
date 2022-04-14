@@ -6,6 +6,9 @@ function UserHeader(){
     return(
         <header>
             <div className="header_wrp">
+            <div className="logo">
+                    <a href="/"><h3 className="logo_header">Win<span>Design</span></h3></a>
+                </div>
                 <div className="avatar">
                     <div className="user_avatar">
                         <img src={avatar} alt="" />
@@ -17,10 +20,6 @@ function UserHeader(){
                 <nav className='menu' >
                     <ul
                     >
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/#about" >Sobre</a></li>
-                        <li><a href="/#servicos" >Serviços</a></li>
-                        <li><a href="/cadastro" >Meus pedidos</a></li>
                         <li><a href="/login" className='log' >Sair</a></li>
                     </ul>
                 </nav>
