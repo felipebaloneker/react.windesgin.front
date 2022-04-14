@@ -1,25 +1,12 @@
 import './styles.scss'
 import '../../index.scss'
+import Header from '../../components/Header'
 const banner = require('../../assets/banner.jpg')
 
 function Home(){
     return (
         <div className="home">
-            <header>
-                <div className="logo">
-                    <h3 className="logo_header">Win<span>Design</span></h3>
-                </div>
-                <nav className='menu' >
-                <ul
-                >
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about" >Sobre</a></li>
-                    <li><a href="#servicos" >Serviços</a></li>
-                    <li><a href="/cadastro" >Cadastro</a></li>
-                    <li><a href="/login" className='login' >Login</a></li>
-                </ul>
-            </nav>
-            </header>
+            <Header/>
             <main>
                 <section>
                     <div className="banner">
