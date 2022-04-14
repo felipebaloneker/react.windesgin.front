@@ -7,7 +7,7 @@ function Home(){
         <div className="home">
             <header>
                 <div className="logo">
-                    <h3 className="logo_header">Windesign</h3>
+                    <h3 className="logo_header">Win<span>Design</span></h3>
                 </div>
                 <nav className='menu' >
                 <ul
