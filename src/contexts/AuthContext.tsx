@@ -9,7 +9,7 @@ type User = {
 type ContextType ={
     user:User| undefined;
     userToken:string;
-    login:(email: string, password: string) => Promise<void>|any;
+    loginUser:(email: string, password: string) => Promise<void>|any;
     setUser:Function;
 }
 
@@ -41,9 +41,9 @@ export function AuthContextProvider(props:AuthContextProps){
         }
     }, [])
 
-    async function login(email: string, password: string){
+    async function loginUser(email: string, password: string){
         const value =
-        await database.post('/login',{
+        await database.post('/users/login',{
             email:`${email}`,
             password:`${password}`
         })
@@ -58,15 +58,15 @@ export function AuthContextProvider(props:AuthContextProps){
             return
 
         })
-        .catch(err=>{return "Usuario Invalido"})
+        .catch(err=>{return err+"Usuario Invalido"})
         if(value === 'Usuario Invalido' ){
             return window.alert(value)
         }
-        return
+        return value
       }
 
     return (
-        <AuthContext.Provider value={{user,login,userToken,setUser}}>
+        <AuthContext.Provider value={{user,loginUser,userToken,setUser}}>
             {props.children}
         </AuthContext.Provider>
     )

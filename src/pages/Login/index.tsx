@@ -1,29 +1,55 @@
 import { useState } from "react";
 import Header from "../../components/Header";
 import './styles.scss'
-const login =require('../../assets/login.jpg')
+import {useNavigate} from 'react-router-dom'
+import { useAuth } from "../../hooks/useAuth";
+import database from '../../services/database';
+import loginImg from '../../assets/login.jpg'
 
 function Login(){         
     const [email,setEmail]= useState('')
     const [password,setPassword]= useState('')
+    const navigate = useNavigate()
+    const {user,loginUser,setUser} =  useAuth()
+    const token = localStorage.getItem('token')
+
+    async function loginClick(){
+          await loginUser(email,password)
+          if(user && token !== undefined){
+            navigate('/meu-painel')
+            } 
+    }
 
     return(
         <div className="login">
             <Header/>
             <div className="main">
                         <div className="image_banner">
-                            <img src={login} alt="" />
+                            <img src={loginImg} alt="" />
                         </div>
                         <div className="login_wrp">
                             <div className="log_header">
                                 <h2>Login</h2>
                             </div>
                             <div className="log_main">
-                                <label htmlFor="">Email:</label>
-                                <input type="text" onChange={()=>setEmail} />
-                                <label htmlFor="">Senha:</label>
-                                <input type="text" onChange={()=>setPassword} />
-                                <button className='log_btn'>Cadastrar</button>
+                                <label htmlFor="text">Email:</label>
+                                <input 
+                                type="email" 
+                                autoFocus
+                                required
+                                value={email}
+                                onChange={(e)=>setEmail(e.target.value)} />
+
+                                <label htmlFor="text">Senha:</label>
+                                <input 
+                                type="password" 
+                                required
+                                value={password} 
+                                onChange={(e)=>setPassword(e.target.value)} />
+                                
+                                <button className='log_btn'
+                                onClick={()=>loginClick()}
+                                >Cadastrar</button>
                             </div>
                             <div className="login_footer">
                                 <a href="/cadastro">Não tem uma conta? Cadastre-se</a>

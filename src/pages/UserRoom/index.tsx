@@ -3,9 +3,13 @@ import "./styles.scss"
 import ListOrder from "../../components/ListOrder";
 import { useState } from "react";
 import NewOrder from "../../components/NewOrder";
+import { useAuth } from "../../hooks/useAuth";
 
 function UserRoom(){
   const [listOpen,setListOpen] = useState(true)
+  const {user} = useAuth()
+  const user_id = user?.id;
+
     return(
         <div className="user_painel">
           <UserHeader/>  

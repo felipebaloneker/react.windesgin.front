@@ -1,9 +1,15 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../../hooks/useAuth';
 import './styles.scss'
 const avatar = require('../../assets/avatar.png')
 
 function UserHeader(){
-    const [name,] = 'Felipe Baloneker'.split(' ')
+    const {user,setUser} = useAuth()
+    const navigate = useNavigate()
+    const user_id = user?.id;
+    const name = user?.name?.split(' ')
+    
     const [open,setOpen]= useState(false)
     const setOpenMenu = ()=>{
         if(open === true){
@@ -11,7 +17,12 @@ function UserHeader(){
         }
         else{setOpen(true)}
     }
-    console.log(open)
+    const logOutUser = async()=>{
+        localStorage.clear()
+        setUser('')
+        navigate('/')
+        
+    }
 
     return(
 <>
