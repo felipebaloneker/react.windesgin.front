@@ -41,10 +41,11 @@
             input{
                 all:unset;
                 width:30rem;
-                height:2rem;
+                height:1.5rem;
                 border:.009rem solid var(--highlight-color);
-                border-radius: 1rem;
+                border-radius: 2rem;
                 margin-bottom:.5rem;
+                padding:.5rem;
             }
             button{
                 background-color: var(--button-color);

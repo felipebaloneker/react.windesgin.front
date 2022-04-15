@@ -14,8 +14,7 @@ export default{
     },
     listCategory:async()=>{
         const token = localStorage.getItem('token')?.replace(/"/g,"");
-
-        const categorys = await database.get('http://localhost:3000/users/list/category',{headers: {'Authorization': `Bearer ${token}`}})
+        const categorys = await database.get('/users/list/category',{headers: {'Authorization': `Bearer ${token}`}})
         .then(function(res){
             return res
         })

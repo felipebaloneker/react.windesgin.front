@@ -43,7 +43,7 @@ function UserHeader(){
         >
             <div className="user_menu">
                 <a>{name}</a>
-                <a href="/login" className='log' >Sair</a>
+                <a className='log' onClick={logOutUser}>Sair</a>
             </div>
         </div>
 </>
