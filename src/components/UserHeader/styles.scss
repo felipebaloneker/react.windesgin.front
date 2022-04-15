@@ -10,42 +10,15 @@ header{
         width: 100%;
         max-width: 900px;
         display: grid;
-        grid-template-columns: repeat(3,1fr);
-        justify-content: space-between;
+        grid-template-columns: repeat(2,1fr);
+        justify-content: center;
         align-items: center;
-    }
-    nav li{
-        display: inline;
-        padding:1rem;
-        
-    }
-    a{
-        text-decoration: none;
-        color:var(--text-color-superlight);
-        transition: .2s ease-out;
-        font-weight: 500;
-    }
-    li a:hover{
-        color:var(--text-color-black);
-    }
-    .mobile-menu{
-        display: none;
-    }
-    .log{
-        border:.1rem solid var(--background-color);
-        color:var(--text-color-black);
-        padding:.5rem;
-        border-radius: .2rem;
-        transition: .5s;
-    }
-    .log:hover{
-        background-color: var(--background-color);
-        color:var(--text-color-superlight);
     }
     .avatar{
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         align-items: center;
+        border: none;
         .user_avatar{
             width:2.5rem;
             height:2.5rem;
@@ -53,19 +26,55 @@ header{
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #84DBFF;
             overflow: hidden;
-            cursor: pointer;
+            background-color: #84DBFF;
+            border:none;
+            margin:.5rem;
             img{
                 width:70%;
             }
         }
-        .user_name{
-            max-width: 10rem;
-            max-height: 1.5rem;
+    }
+}
+.user_name{
+    width: 100%;
+    max-width:20rem;
+    max-height: 10rem;
+    position: absolute;
+    top: 4rem;
+    right:0;
+    bottom:0;
+    z-index: 999;
+    display: flex;
+    align-self: center;
+    justify-content: left;
+    .user_menu{
+        min-width: 10rem;
+        max-height: 10rem;
+        color:var(--text-color-superlight);
+        padding:1rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: var(--header-background);
+        a{
+            text-decoration: none;
             color:var(--text-color-superlight);
-            padding:.2rem;
-            overflow: hidden;
+            transition: .2s ease-out;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        .log{
+            border:.1rem solid var(--background-color);
+            color:var(--text-color-black);
+            padding:.5rem;
+            border-radius: .2rem;
+            transition: .5s;
+        }
+        .log:hover{
+            background-color: var(--background-color);
+            color:var(--text-color-superlight);
         }
     }
 }
