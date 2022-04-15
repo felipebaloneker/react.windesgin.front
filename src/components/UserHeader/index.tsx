@@ -8,7 +8,7 @@ function UserHeader(){
     const {user,setUser} = useAuth()
     const navigate = useNavigate()
     const user_id = user?.id;
-    const name = user?.name?.split(' ')
+    const [name,] = user!.name!.split(' ')
     
     const [open,setOpen]= useState(false)
     const setOpenMenu = ()=>{
