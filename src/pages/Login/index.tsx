@@ -13,7 +13,7 @@ function Login(){
     const {user,loginUser,setUser} =  useAuth()
     const token = localStorage.getItem('token')
 
-    async function loginClick(){
+    const loginClick= async()=>{
           await loginUser(email,password)
           if(user && token !== undefined){
             navigate('/meu-painel')
@@ -48,7 +48,7 @@ function Login(){
                                 onChange={(e)=>setPassword(e.target.value)} />
                                 
                                 <button className='log_btn'
-                                onClick={()=>loginClick()}
+                                onClick={loginClick}
                                 >Cadastrar</button>
                             </div>
                             <div className="login_footer">

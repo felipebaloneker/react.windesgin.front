@@ -1,5 +1,7 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header";
+import Api from "../../services/Api";
 import './styles.scss'
 const cadastro =require('../../assets/cadastro.jpg')
 
@@ -7,6 +9,13 @@ function Cadastro(){
     const [name,setName]= useState('')
     const [email,setEmail]= useState('')
     const [password,setPassword]= useState('')
+    const navigate = useNavigate()
+    
+    const createUser = async()=>{
+        const user = await Api.createUser(name,email,password)
+        if(user){navigate('/login')}
+
+    }
     return(
         <div className="cadastro">
             <Header/>
@@ -19,13 +28,18 @@ function Cadastro(){
                         <h2>Cadastre-se</h2>
                     </div>
                     <div className="cad_main">
-                        <label htmlFor="">Nome:</label>
-                        <input type="text" onChange={()=>setName} />
-                        <label htmlFor="">Email:</label>
-                        <input type="text" onChange={()=>setEmail} />
-                        <label htmlFor="">Senha:</label>
-                        <input type="text" onChange={()=>setPassword} />
-                        <button className='cad_btn'>Cadastrar</button>
+                        <label htmlFor="text">Nome:</label>
+                        <input type="text" value={name} onChange={(e)=>setName(e.target.value)} />
+
+                        <label htmlFor="text">Email:</label>
+                        <input type="text" 
+                        value={email}
+                        onChange={(e)=>setEmail(e.target.value)}/>
+                        <label htmlFor="text">Senha:</label>
+                        <input type="text" value={password} onChange={(e)=>setPassword(e.target.value)} />
+                        <button className='cad_btn'
+                        onClick={createUser}
+                        >Cadastrar</button>
                     </div>
                     <div className="cad_footer">
                         <a href="/login">já tem uma conta? Loge-se</a>
