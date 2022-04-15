@@ -4,6 +4,7 @@ import ListOrder from "../../components/ListOrder";
 import { useState } from "react";
 import NewOrder from "../../components/NewOrder";
 import { useAuth } from "../../hooks/useAuth";
+import Header from "../../components/Header";
 
 function UserRoom(){
   const [listOpen,setListOpen] = useState(true)
@@ -12,7 +13,7 @@ function UserRoom(){
 
     return(
         <div className="user_painel">
-          <UserHeader/>  
+          {user? <UserHeader/>  : <Header/>}
           <div className="painel_wrp">
             <main>
               <div className="user_btn">
