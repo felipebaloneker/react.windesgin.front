@@ -29,8 +29,9 @@ function NewOrder(){
                             onChange={event => setCategory(event.target.value)}
                         />
                         <label className="labelForm" htmlFor="branding">
-                            Branding: Sua empresa terá uma renovação de Identidade visual da marca desde a criação  de um nome, Logo, Website, Banner e todos os serviços de design que a empresa precisa para uma nova fase.
+                            <span>Branding:</span> Sua empresa terá uma renovação de Identidade visual da marca desde a criação  de um nome, Logo, Website, Banner e todos os serviços de design que a empresa precisa para uma nova fase.
                         </label>
+                        <br />
                         <input
                             type="checkbox"
                             id="logo"
@@ -39,8 +40,9 @@ function NewOrder(){
                             onChange={event => setCategory(event.target.value)}
                         />
                         <label className="labelForm" htmlFor="logo">
-                            Criação de Logo Marca: Elaboramos um Logo unindo figuras estratégicas que fazem relação com sua empresa.
+                            <span>Criação de Logo Marca:</span> Elaboramos um Logo unindo figuras estratégicas que fazem relação com sua empresa.
                         </label>
+                        <br />
                         <input
                             type="checkbox"
                             id="embalagem"
@@ -49,8 +51,9 @@ function NewOrder(){
                             onChange={event => setCategory(event.target.value)}
                         />
                         <label className="labelForm" htmlFor="embalagem">
-                            Design de Embalagens: Fazemos o design dos seus produtos.
+                           <span> Design de Embalagens:</span> Fazemos o design dos seus produtos.
                         </label>
+                        <br />
                         <input
                             type="checkbox"
                             id="card"
@@ -59,8 +62,9 @@ function NewOrder(){
                             onChange={event => setCategory(event.target.value)}
                         />
                         <label className="labelForm" htmlFor="card">
-                            Criação de Card:  Criamos ilustrações para divulgar eventos e produtos da sua empresa
+                            <span>Criação de Card:</span>  Criamos ilustrações para divulgar eventos e produtos da sua empresa
                         </label>
+                        <br />
                         <input
                             type="checkbox"
                             id="banner"
@@ -69,8 +73,9 @@ function NewOrder(){
                             onChange={event => setCategory(event.target.value)}
                         />
                         <label className="labelForm" htmlFor="banner">
-                            Criação de Banner:  Elaboramos banners e cartazes para divulgar produtos da sua empresa
+                            <span>Criação de Banner:</span>  Elaboramos banners e cartazes para divulgar produtos da sua empresa
                         </label>
+                        <br />
                         <input
                             type="checkbox"
                             id="website"
@@ -79,8 +84,9 @@ function NewOrder(){
                             onChange={event => setCategory(event.target.value)}
                         />
                         <label className="labelForm" htmlFor="website">
-                            Criação de Ux Design / WebDesign: Criamos um site único de diretamente voltado ao publico e a divulgação da sua empresa e produtos.
+                            <span>Criação de Ux Design / WebDesign:</span> Criamos um site único de diretamente voltado ao publico e a divulgação da sua empresa e produtos.
                         </label>
+                        <br />
                         <input
                             type="checkbox"
                             id="rede-social"
@@ -89,9 +95,26 @@ function NewOrder(){
                             onChange={event => setCategory(event.target.value)}
                         />
                         <label className="labelForm" htmlFor="rede-social">
-                            Gerenciamento de Rede Social: Com objetivo de gerar reconhecimento para para sua empresa
+                            <span>Gerenciamento de Rede Social:</span> Com objetivo de gerar reconhecimento para para sua empresa
                         </label>
+                        <br />
                     </div>
+                        {/* Detalhes do pedido */}
+                    <div className="details">
+                            <label htmlFor="assunto">Decreva ainda melhor a sua necessidade:</label>
+                            <br />
+                            <input
+                            type="text"
+                            id="assunto"
+                            className="text-input"
+                            placeholder="Descreva melhor"
+                            onChange={event => setDetails(event.target.value)}
+                            required
+                            />
+                    </div>
+                    <div className="flex">
+                    <button type="submit">Realizar pedido</button>
+                  </div>
                 </form>
             </div>
         </div>
