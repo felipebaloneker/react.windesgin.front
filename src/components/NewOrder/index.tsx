@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import { UseCategoryList } from "../../hooks/useCategoryList";
+import Api from "../../services/Api";
 import './styles.scss'
 
 function NewOrder(){
@@ -7,21 +8,20 @@ function NewOrder(){
     const [details, setDetails] = useState('')
     const {listCategory} = UseCategoryList()
 
-    const setCategory = async ()=> {
-        let category_id;
-       for(let i = 0; i < listCategory.length; i++){
-           if(listCategory[i].name == categoria){
-               category_id = listCategory[i].id
-           }
-       }
-       return category_id;
-    }
-
     const createNewOrder = async(e:FormEvent)=>{
         e.preventDefault()
-        const category_id = setCategory()
-        if(category_id !== undefined){
-            window.alert('Selecione uma categoria')
+        const category_id = listCategory.map(cat=>{
+            if(categoria === cat.name){
+                return cat.id
+            }
+        })
+        console.log(category_id[0])
+        if(category_id[0] === undefined || details.length === 0){
+            return window.alert('Selecione uma categoria e detalhe melhor sua necessidade.')
+        }
+        else{
+            const order = Api.creatUserOrder(details,category_id[0]).then(function (res){return res})
+            console.log(order)
         }
     }
 
