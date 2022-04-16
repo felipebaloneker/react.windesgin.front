@@ -13,6 +13,7 @@
         justify-content: flex-start;
         h2{
             font-weight: 300;
+            color:var(--text-color);
         }
         margin-bottom:1rem;
     }
@@ -20,11 +21,11 @@
         width:100%;
         overflow-y: auto;
         overflow-x: hidden;
-        .order_details{
+        .order_container{
             width: 100%;
             height: 7rem;
             display: grid;
-            grid-template-columns: repeat(2,1fr);
+            grid-template-columns: 2fr 1fr;
             cursor: pointer;
             background-color: var(--text-color-superlight);
             box-shadow: .5rem solid var(--shadow-color);
@@ -34,23 +35,28 @@
             border-radius: .5rem;
             margin-top:1rem;
             font-size: .9rem;
+            color:var(--text-color);
             .order_wrp{
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
+                display: grid;
+                grid-template-rows: auto;
+                align-items: center;
+                overflow: hidden;
                 .order_data{
                     display: flex;
+                    width: 100%;
                 }
                 span{
                     font-weight: bold;
                     margin-right: .5rem;
                 }
-            }
-            .order_wrp:last-child{
-                align-items: flex-end;
+                .order_details{
+                    width: 90%;
+                    overflow: hidden;
+                    margin-top:.3rem;
+                }
             }
         }
-        .order_details:hover{
+        .order_container:hover{
             background-color: var(--highlight-color);
             color:var(--text-color-superlight)
         }
