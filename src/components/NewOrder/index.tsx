@@ -1,14 +1,28 @@
-import { useState } from "react";
+import { FormEvent, useState } from "react";
+import { UseCategoryList } from "../../hooks/useCategoryList";
 import './styles.scss'
 
 function NewOrder(){
     const [categoria,setCategoria] = useState('')
     const [details, setDetails] = useState('')
-    const setCategory = (e:string)=> {
-        
-    }
-    const createNewOrder = async ()=>{
+    const {listCategory} = UseCategoryList()
 
+    const setCategory = async ()=> {
+        let category_id;
+       for(let i = 0; i < listCategory.length; i++){
+           if(listCategory[i].name == categoria){
+               category_id = listCategory[i].id
+           }
+       }
+       return category_id;
+    }
+
+    const createNewOrder = async(e:FormEvent)=>{
+        e.preventDefault()
+        const category_id = setCategory()
+        if(category_id !== undefined){
+            window.alert('Selecione uma categoria')
+        }
     }
 
     return(
@@ -26,8 +40,8 @@ function NewOrder(){
                                 type="radio"
                                 id="branding"
                                 name="categoria"
-                                value="branding"
-                                onChange={event => setCategory(event.target.value)}
+                                value="Branding"
+                                onChange={event => setCategoria(event.target.value)}
                             />
                             <label className="labelForm" htmlFor="branding">
                                 <span>Branding:</span><br></br> Sua empresa terá uma renovação de Identidade visual da marca desde a criação  de um nome, Logo, Website, Banner e todos os serviços de design que a empresa precisa para uma nova fase.
@@ -38,8 +52,8 @@ function NewOrder(){
                                 type="radio"
                                 id="logo"
                                 name="categoria"
-                                value="criação de logo"
-                                onChange={event => setCategory(event.target.value)}
+                                value="Criação de Logo"
+                                onChange={event => setCategoria(event.target.value)}
                             />
                             <label className="labelForm" htmlFor="logo">
                                 <span>Criação de Logo Marca:</span><br></br> Elaboramos um Logo unindo figuras estratégicas que fazem relação com sua empresa.
@@ -50,8 +64,8 @@ function NewOrder(){
                                 type="radio"
                                 id="embalagem"
                                 name="categoria"
-                                value="design de embalagem"
-                                onChange={event => setCategory(event.target.value)}
+                                value="Design de Embalagem"
+                                onChange={event => setCategoria(event.target.value)}
                             />
                             <label className="labelForm" htmlFor="embalagem">
                             <span> Design de Embalagens:</span><br></br> Fazemos o design dos seus produtos.
@@ -62,8 +76,8 @@ function NewOrder(){
                                 type="radio"
                                 id="card"
                                 name="categoria"
-                                value="criação de card"
-                                onChange={event => setCategory(event.target.value)}
+                                value="Criação de Card"
+                                onChange={event => setCategoria(event.target.value)}
                             />
                             <label className="labelForm" htmlFor="card">
                                 <span>Criação de Card:</span><br></br>  Criamos ilustrações para divulgar eventos e produtos da sua empresa
@@ -74,8 +88,8 @@ function NewOrder(){
                                 type="radio"
                                 id="banner"
                                 name="categoria"
-                                value="criação de banner"
-                                onChange={event => setCategory(event.target.value)}
+                                value="Criação de Banner"
+                                onChange={event => setCategoria(event.target.value)}
                             />
                             <label className="labelForm" htmlFor="banner">
                                 <span>Criação de Banner:</span><br></br>  Elaboramos banners e cartazes para divulgar produtos da sua empresa
@@ -86,8 +100,8 @@ function NewOrder(){
                                 type="radio"
                                 id="website"
                                 name="categoria"
-                                value="criação de website"
-                                onChange={event => setCategory(event.target.value)}
+                                value="Criação de Website"
+                                onChange={event => setCategoria(event.target.value)}
                             />
                             <label className="labelForm" htmlFor="website">
                                 <span>Criação de Ux Design / WebDesign:</span><br></br> Criamos um site único de diretamente voltado ao publico e a divulgação da sua empresa e produtos.
@@ -98,8 +112,8 @@ function NewOrder(){
                                 type="radio"
                                 id="rede-social"
                                 name="categoria"
-                                value="gerenciamento de rede social"
-                                onChange={event => setCategory(event.target.value)}
+                                value="Gerenciamento Rede Social"
+                                onChange={event => setCategoria(event.target.value)}
                             />
                             <label className="labelForm" htmlFor="rede-social">
                                 <span>Gerenciamento de Rede Social:</span><br></br> Com objetivo de gerar reconhecimento para para sua empresa
@@ -121,7 +135,8 @@ function NewOrder(){
                             ></textarea>
                     </div>
                     <div className="flex">
-                    <button type="submit" className="submit">Realizar pedido</button>
+                    <button type="submit" className="submit"
+                    >Realizar pedido</button>
                   </div>
                 </form>
             </div>
