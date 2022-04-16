@@ -16,7 +16,9 @@ function ListOrder(){
                 <h2>Meus Pedidos:</h2>
             </div>
             <div className="orders">
-                {orderList.map(item=>{
+                {
+                orderList.length == 0 ? <p>Crie um novo pedido </p>:
+                orderList.map(item=>{
                     const [fulldate,] = item.created_at.split('T')
                     const [year,week,day] = fulldate.split('-')
                     const date = `${day}/${week}/${year}`

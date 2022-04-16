@@ -49,7 +49,7 @@ function Login(){
                                 
                                 <button className='log_btn'
                                 onClick={loginClick}
-                                >Cadastrar</button>
+                                >Entrar</button>
                             </div>
                             <div className="login_footer">
                                 <a href="/cadastro">Não tem uma conta? Cadastre-se</a>

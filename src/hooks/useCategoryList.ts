@@ -4,6 +4,7 @@ import Api from "../services/Api";
 type Category ={
     id:string;
     name:string;
+    details:string;
     created_at:string;
 }
 type resProp = {
