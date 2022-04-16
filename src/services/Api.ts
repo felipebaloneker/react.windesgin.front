@@ -19,6 +19,7 @@ export default{
             return res
         })
         .catch(err => {return})
+        return categorys
     },
     listUserOrder:async()=>{
         const user_id = localStorage.getItem('userId');

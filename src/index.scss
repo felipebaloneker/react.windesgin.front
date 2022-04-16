@@ -5,11 +5,14 @@
 }
 body {
   margin: 0;
-  font-family: "Poppins",sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--body-color) ;
 }
 :root{
+  --body-color:#E7E4E3;
+  --shadow-color:#3C3C3B;
   --button-color:#3A7FFF;
   --button-color-two:#7963E1;
   --background-color:#3A7FFF;

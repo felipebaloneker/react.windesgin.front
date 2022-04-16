@@ -4,45 +4,51 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: .1rem .1rem 1rem var(--highlight-color);
+    // box-shadow: .1rem .1rem 1rem var(--highlight-color);
     border-radius: .2rem;
     overflow: hidden;
-    .column{
+    .list_header{
         width:100%;
-        display: grid;
-        grid-template-columns: repeat(9,1fr);
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        background-color: var(--highlight-color);
-        color: var(--text-color-superlight);
+        display: flex;
+        justify-content: flex-start;
+        h2{
+            font-weight: 300;
+        }
+        margin-bottom:1rem;
     }
     .orders{
         width:100%;
-        height: 25rem;
         overflow-y: auto;
         overflow-x: hidden;
         .order_details{
             width: 100%;
+            height: 7rem;
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
             cursor: pointer;
-            height: 2rem;
-            display: flex;
-            justify-content: space-between;
+            background-color: var(--text-color-superlight);
+            box-shadow: .5rem solid var(--shadow-color);
+            padding:1rem;
             overflow: hidden;
-            .order_data{
-                width:100%;
-                max-width: 9rem;
-                height: 1.5rem;
+            transition: .5s;
+            border-radius: .5rem;
+            margin-top:1rem;
+            font-size: .9rem;
+            .order_wrp{
                 display: flex;
-                justify-content: center;
-                overflow: hidden;
-                text-align: center;
-                padding-left: .2rem;
+                flex-direction: column;
+                justify-content: space-between;
+                .order_data{
+                    display: flex;
+                }
+                span{
+                    font-weight: bold;
+                    margin-right: .5rem;
+                }
             }
-            .order_data:first-child{
-                justify-content: flex-start;
+            .order_wrp:last-child{
+                align-items: flex-end;
             }
-
         }
         .order_details:hover{
             background-color: var(--highlight-color);
