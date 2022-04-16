@@ -21,7 +21,7 @@ function ListOrder(){
                     const [year,week,day] = fulldate.split('-')
                     const date = `${day}/${week}/${year}`
                     const category = listCategory.map(cat=>{
-                        if(item.category_id = cat.id){
+                        if(item.category_id === cat.id){
                             return cat.name
                         }
                     })

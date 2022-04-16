@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react";
+import { Navigate } from "react-router-dom";
 import { UseCategoryList } from "../../hooks/useCategoryList";
 import Api from "../../services/Api";
 import './styles.scss'
@@ -10,19 +11,21 @@ function NewOrder(){
 
     const createNewOrder = async(e:FormEvent)=>{
         e.preventDefault()
-        const category_id = listCategory.map(cat=>{
-            if(categoria === cat.name){
-                return cat.id
+        // pegando id da categoria selecionada
+       listCategory.map(cat=>{
+            if(categoria == cat.name){
+                if(cat.id !== undefined || details.length !== 0){
+                    console.log('category:'+cat.id)
+                    Api.creatUserOrder(details,cat.id)
+                    .then(function (res){return res})
+                    .catch(function(){return window.alert('Erro por favor tente novamente mais tarde.')})
+                    return window.alert("Pedido Criado, clique em 'meus pedidos' para acompanhar")
+                }
+                else{
+                    return window.alert('Selecione uma categoria e detalhe melhor sua necessidade.')
+                }
             }
         })
-        console.log(category_id[0])
-        if(category_id[0] === undefined || details.length === 0){
-            return window.alert('Selecione uma categoria e detalhe melhor sua necessidade.')
-        }
-        else{
-            const order = Api.creatUserOrder(details,category_id[0]).then(function (res){return res})
-            console.log(order)
-        }
     }
 
     return(
