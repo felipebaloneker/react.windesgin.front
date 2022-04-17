@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Header from "../../components/Header";
 import OpenChat from "../../components/OpenChat";
 import OpenDetails from "../../components/OpenDetails";
@@ -16,7 +16,11 @@ function Chat(){
     const {user} = useAuth()
     // open chat or details
     const [chatOpen,setChatOpen] = useState(true)
-
+    const navigate = useNavigate()
+    const backToPainel=()=>{
+        navigate('/meu-painel')
+    }
+    
     if(user){
         return(
             <>
@@ -34,8 +38,8 @@ function Chat(){
                                     style={{backgroundColor: !chatOpen? "var( --text-color)":""}}
                                     onClick={()=> setChatOpen(false)}
                                     ><BsFillFileTextFill size={25}/></button>
-                                                                        <button
-                                    onClick={()=> setChatOpen(false)}
+                                    <button
+                                    onClick={backToPainel}
                                     ><BsFillArrowLeftCircleFill size={25}/></button>
                                 </div>
                                 <div className="chat_selected">

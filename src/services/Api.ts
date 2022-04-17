@@ -54,10 +54,10 @@ export default{
          .catch(err => {return})
          return chat
     },
-    addUserChat:async(chatId:string)=>{
+    addUserChat:async(chat_id:string)=>{
         const token = localStorage.getItem('token')?.replace(/"/g,"");
         const user = await database.post(`/chat/create/user`,{
-            chatId
+            chat_id
          },{headers: {'Authorization': `Bearer ${token}`}})
          .then(function(res){
              return res

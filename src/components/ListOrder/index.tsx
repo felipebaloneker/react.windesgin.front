@@ -17,22 +17,22 @@ function ListOrder(){
     const {listCategory} = UseCategoryList()
 	const {orderList} = useOrders()
     const navigate = useNavigate()
-        //get id of order and chat
-        const params = useParams<Props>();
-        const id = params.id
-        const order_id = id!.split('_')[0]
-
     const openOderClick = async (id:string)=>{
         if(id!.trim() === ''){
             return;
         }
         const chat = await Api.createChat(id!)
         .then(function(res:ChatProps|any){
-            console.log(res.data)
             return res.data
         })
         .catch(function (err){return console.log(err)})
-        if(chat){
+        const participant = await Api.addUserChat(chat.id)
+        .then(function(res:ChatProps|any){
+            return res.data
+        })
+        .catch(function (err){return console.log(err)})
+
+        if(chat &&participant){
             navigate(`/room/${chat.order}_${chat.id}`)
         }
     }
@@ -54,7 +54,6 @@ function ListOrder(){
                             return cat.name
                         }
                     })
-                    if(item.id === order_id){
                         return(
                             <div className="order_container"
                             onClick={()=>openOderClick(item.id)}
@@ -74,7 +73,6 @@ function ListOrder(){
                                 </div>
                             </div>
                         )
-                    }
                 })}
             </div>
         </div>
