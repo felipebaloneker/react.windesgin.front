@@ -69,7 +69,7 @@ function OpenChat(){
                     <div className="chat_footer">
                         <div className="footer_btn">
                             <BsFillEmojiSmileFill 
-                            className='emoji-btn '
+                            className='emoji-btn'
                             onClick={openEmoji}
                             size={20}
                             />
