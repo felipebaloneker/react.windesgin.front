@@ -5,6 +5,10 @@ import { useOrders } from "../../hooks/useOrders";
 import Api from "../../services/Api";
 import './styles.scss'
 
+type ChatProps={
+    id:string;
+    order:string;
+}
 
 function ListOrder(){
     const {listCategory} = UseCategoryList()
@@ -16,13 +20,13 @@ function ListOrder(){
             return;
         }
         const chat = await Api.createChat(id!)
-        .then(function (res){
-            console.log(res)
-            return res 
+        .then(function(res:ChatProps|any){
+            console.log(res.data)
+            return res.data
         })
         .catch(function (err){return console.log(err)})
         if(chat){
-            navigate(`/room/${id}`)
+            navigate(`/room/${chat.order}_${chat.id}`)
         }
     }
 

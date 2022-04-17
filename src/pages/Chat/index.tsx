@@ -9,11 +9,9 @@ type ChatParams ={
 function Chat(){
     // pegando usuario
     const {user} = useAuth()
-    //pegando id do pedido
+    //pegando id do pedido e do chat
     const params = useParams<ChatParams>();
-    const order_id = params.id
-    // pegando id do chat
-    console.log(order_id)
+    const [order_id, chat_id]= params.id!.split('_')
     
     if(user){
         return(
