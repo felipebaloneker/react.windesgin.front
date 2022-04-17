@@ -1,13 +1,29 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { UseCategoryList } from "../../hooks/useCategoryList";
 import { useOrders } from "../../hooks/useOrders";
+import Api from "../../services/Api";
 import './styles.scss'
+
 
 function ListOrder(){
     const {listCategory} = UseCategoryList()
 	const {orderList} = useOrders()
-    const openOderClick = ()=>{
-        console.log('Open')
+    const navigate = useNavigate()
+
+    const openOderClick = async (id:string)=>{
+        if(id!.trim() === ''){
+            return;
+        }
+        const chat = await Api.createChat(id!)
+        .then(function (res){
+            console.log(res)
+            return res 
+        })
+        .catch(function (err){return console.log(err)})
+        if(chat){
+            navigate(`/room/${id}`)
+        }
     }
 
     return(
@@ -29,7 +45,7 @@ function ListOrder(){
                     })
                     return(
                         <div className="order_container"
-                        onClick={openOderClick}
+                        onClick={()=>openOderClick(item.id)}
                         key={item.id}
                         >
                             <div className="order_wrp">
