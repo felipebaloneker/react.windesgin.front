@@ -9,17 +9,11 @@ import { BsFillChatDotsFill } from "react-icons/bs";
 import { BsFillFileTextFill } from "react-icons/bs";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import './styles.scss'
-
-type ChatParams ={
-    id:string;
-}
+import { useOrders } from "../../hooks/useOrders";
 
 function Chat(){
     // get user
     const {user} = useAuth()
-    //get id of order and chat
-    const params = useParams<ChatParams>();
-    const [order_id, chat_id]= params.id!.split('_')
     // open chat or details
     const [chatOpen,setChatOpen] = useState(true)
 
@@ -46,12 +40,8 @@ function Chat(){
                                 </div>
                                 <div className="chat_selected">
                                     {chatOpen ?
-                                        <OpenChat
-                                        chat_id={chat_id}
-                                        /> :
-                                        <OpenDetails
-                                        order_id={order_id}
-                                        />
+                                        <OpenChat/> :
+                                        <OpenDetails/>
                                     }
                                 </div>
                             </div>

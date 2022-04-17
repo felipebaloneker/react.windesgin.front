@@ -14,9 +14,9 @@ export const UseCategoryList =()=>{
     const [listCategory,setListCategory] = useState<Category[]>([])
     useEffect(()=>{
             Api.listCategory().then(function(item:resProp|any){
-                setListCategory(item.data)
+                return setListCategory(item.data)
             })
-            .catch(err=>{console.log(err)})
+            .catch(err=>{return err})
     },[])
     return {listCategory}
 }

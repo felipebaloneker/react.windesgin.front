@@ -65,5 +65,16 @@ export default{
          .catch(err => {return})
          return user
     },
+    findOrder:async(id:string)=>{
+        const token = localStorage.getItem('token')?.replace(/"/g,"");
+        const order = await database.post(`/chat/create/user`,{
+            id
+         },{headers: {'Authorization': `Bearer ${token}`}})
+         .then(function(res){
+             return res
+         })
+         .catch(err => {return})
+         return order
+    },
     createMessage:async()=>{}
 }

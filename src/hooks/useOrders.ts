@@ -23,9 +23,9 @@ export function useOrders(){
     useEffect(()=>{
         const timer = setInterval(()=>{
             Api.listUserOrder().then(function(item:resProp|any){
-                setList(item.data)
+                return setList(item.data)
             })
-            .catch(err=>{console.log(err)})
+            .catch(err=>{return err})
         },1000)
         return ()=>clearInterval(timer)
     })
