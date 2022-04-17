@@ -31,6 +31,16 @@ export default{
         .catch(err => {return})
         return list
     },
+    listChatMessage:async()=>{
+        const user_id = localStorage.getItem('userId');
+        const token = localStorage.getItem('token')?.replace(/"/g,"");
+        const list = await database.get(`/chat/list/message`,{headers: {'Authorization': `Bearer ${token}`}})
+        .then(function(res){
+            return res
+        })
+        .catch(err => {return})
+        return list
+    },
     creatUserOrder:async(details:string,category_id:string)=>{
         const token = localStorage.getItem('token')?.replace(/"/g,"");
         const order = await database.post(`/users/create/order`,{
@@ -76,5 +86,18 @@ export default{
          .catch(err => {return})
          return order
     },
-    createMessage:async()=>{}
+    createMessage:async(chat_id:string,body:string,type:string)=>{
+        const token = localStorage.getItem('token')?.replace(/"/g,"");
+        const message = await database.post(`/chat/message`,{
+            chat_id,
+            body,
+            type,
+         },{headers: {'Authorization': `Bearer ${token}`}})
+         .then(function(res){
+             return res
+         })
+         .catch(err => {return})
+         return message
+    },
+
 }

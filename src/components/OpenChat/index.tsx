@@ -15,9 +15,17 @@ function OpenChat(){
         const chat_id = id!.split('_')[1]
         
         return(
-            <>
-                {chat_id}
-            </>
+            <div className="chat_open">
+                <div className="chat_header">
+
+                </div>
+                <div className="chat_main">
+                    
+                </div>
+                <div className="chat_footer">
+
+                </div>
+            </div>
         )
 }
 export default OpenChat
