@@ -31,10 +31,10 @@ export default{
         .catch(err => {return})
         return list
     },
-    listChatMessage:async()=>{
+    listChatMessage:async(chat_id:string)=>{
         const user_id = localStorage.getItem('userId');
         const token = localStorage.getItem('token')?.replace(/"/g,"");
-        const list = await database.get(`/chat/list/message`,{headers: {'Authorization': `Bearer ${token}`}})
+        const list = await database.get(`/chat/list/message?chat_id=${chat_id}`,{headers: {'Authorization': `Bearer ${token}`}})
         .then(function(res){
             return res
         })

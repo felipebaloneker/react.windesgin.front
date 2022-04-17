@@ -1,0 +1,23 @@
+.chat_open{
+    display: grid;
+    height:90vh;
+    grid-template-rows: 4rem 1fr 4rem;
+    .chat_footer{
+        display: grid;
+        grid-template-columns: 10% auto 10%;
+        align-items: center;
+        background-color: var(--text-color-superlight);
+        input{
+            all:unset;
+            height:2rem;
+            border: .09rem solid var(--button-color-two);
+            border-radius: 2rem;
+        }
+        .footer_btn{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color:var(--header-background)
+        }
+    }
+}
