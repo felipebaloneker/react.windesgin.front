@@ -1,0 +1,43 @@
+.chat_page{
+    display: flex;
+    flex-direction: column;
+    .chat_wrp{
+        width: 100%;
+        .chat_container{
+            display: grid;
+            grid-template-columns: 6rem 1fr;
+        }
+        .chat_selected{
+            background-color: var(--body-color);
+        }
+    }
+    
+}
+.chat_btn{
+    height: 89.5vh;
+    overflow: hidden;
+    display:flex;
+    flex-direction: column;
+    background-color:var(--button-color-two);
+    align-items: center;
+    position: relative;
+    button{
+        all:unset;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding:1rem;
+        cursor: pointer;
+        color:var(--text-color-superlight);
+        transition: .5s;
+
+    }
+    button:last-child{
+        position: absolute;
+        top:90%;
+    }
+    button:hover{
+        background-color: var( --text-color)
+    }
+}
