@@ -5,9 +5,11 @@ import { useChatMessages } from '../../hooks/useChatMessages';
 import { BsFillEmojiSmileFill } from "react-icons/bs";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import { IoMdSend } from "react-icons/io";
+import EmojiPicker from 'emoji-picker-react';
 
 import './styles.scss'
 import Api from '../../services/Api';
+import MessageItem from '../MessageItem';
 
 type Props ={
     id:string;
@@ -31,6 +33,7 @@ function OpenChat(){
                 body.scrollTop = body.scrollHeight;
             }
         }, [messages.length]);
+
         const openEmoji=()=>{
             if(emojiOpen){
                 setEmojiOpen(false)
@@ -43,10 +46,15 @@ function OpenChat(){
             .catch(err =>console.log(err))
             setText('')
         }
+
         const clickEnter = (e:string) =>{
             if(e === 'Enter'){
                 sendMessage();
             }
+        }
+
+        const EmojiClick =(e:any,emojiObject:any)=>{
+            setText(text + emojiObject.emoji);
         }
 
         if(chat_id){                
@@ -56,15 +64,28 @@ function OpenChat(){
 
                     </div>
                     <div className="chat_main" id ='body'>
-                        {messages.map(item=>{
-                            return(
-                               <div className="message_item"
-                               key={item.id}
-                               >
-                                    <>{item.body}</>
-                               </div>
-                            )
-                        })}
+                        <div className="chat_message">
+                            {messages.map(item=>{
+                                return(
+                                    <MessageItem
+                                    author={item.author_id}
+                                    message={item.body}
+                                    time={item.created_at}
+                                    type={item.type}
+                                    key={item.id}
+                                    />
+                                )
+                            })}
+                        </div>
+                        <div className="chat-emoji"
+                        style={{display: emojiOpen ? "flex" : "none"}}
+                        >
+                        <EmojiPicker
+                        onEmojiClick={EmojiClick}
+                        disableSearchBar
+                        disableSkinTonePicker
+                        />
+                        </div>
                     </div>
                     <div className="chat_footer">
                         <div className="footer_btn">

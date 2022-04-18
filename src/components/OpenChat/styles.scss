@@ -9,9 +9,10 @@
         background-color: var(--text-color-superlight);
         input{
             all:unset;
-            height:2rem;
-            border: .09rem solid var(--button-color-two);
+            height:1rem;
+            border: .09rem solid var(--button-color);
             border-radius: 2rem;
+            padding:1rem;
         }
         .footer_btn{
             display: flex;
