@@ -18,7 +18,7 @@
     overflow: hidden;
     display:flex;
     flex-direction: column;
-    background-color:var(--button-color-two);
+    background-color:var(--text-color);
     align-items: center;
     position: relative;
     button{
@@ -38,6 +38,6 @@
         top:90%;
     }
     button:hover{
-        background-color: var( --text-color)
+        background-color: var(--button-color)
     }
 }

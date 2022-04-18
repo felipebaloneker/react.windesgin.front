@@ -31,11 +31,11 @@ function Chat(){
                             <div className="chat_container">
                                 <div className="chat_btn">
                                     <button
-                                    style={{backgroundColor: chatOpen? "var( --text-color)":""}}
+                                    style={{backgroundColor: chatOpen? "var(--button-color)":""}}
                                     onClick={()=> setChatOpen(true)}
                                     ><BsFillChatDotsFill size={25}/></button>
                                     <button
-                                    style={{backgroundColor: !chatOpen? "var( --text-color)":""}}
+                                    style={{backgroundColor: !chatOpen? "var(--button-color)":""}}
                                     onClick={()=> setChatOpen(false)}
                                     ><BsFillFileTextFill size={25}/></button>
                                     <button
