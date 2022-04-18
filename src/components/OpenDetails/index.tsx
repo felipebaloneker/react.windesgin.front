@@ -34,17 +34,22 @@ function OpenDetails(){
                         <div className="order_container"
                         key={item.id}
                         >
-                            <div className="order_wrp">
+                            <div className="order_header">
                                 <div className="order_data">
                                     <span className="text">{category}</span>
-                                    <span>Id:</span>
-                                    <p className="text">{item.id}</p>
+                                    <p>ID: {item.id}</p>
                                 </div>
-                                <div className="order_data"><p className="order_details">{item.details}</p></div>
+                                <div className="order_data"><span>Status:</span><p>{item.status}</p></div>
                             </div>
                             <div className="order_wrp">
-                                <div className="order_data"><span>Status:</span><p>{item.status}</p></div>
-                                <div className="order_data"><span>Data de Criação:</span><p>{date}</p></div>
+                                <div className="order_data">
+                                    <span>Detalhes:</span>
+                                    <p className="order_details">{item.details}</p>
+                                </div>
+                                <div className="order_data">
+                                    <span>Data de Criação:</span>
+                                    <p>{date}</p>
+                                </div>
                             </div>
                         </div>
                     )

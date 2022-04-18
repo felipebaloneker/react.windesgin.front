@@ -1,0 +1,27 @@
+.order_container{
+    display: grid;
+    grid-template-rows: 4rem 1fr;
+    .order_wrp{
+        padding:1rem;
+        display: flex;
+        flex-direction: column;
+        .order_data{
+            margin-top:1rem;
+        }
+        span{
+            color:var(--base-color);
+            font-weight: 500;
+        }
+    }
+    .order_header{
+        display: flex;
+        justify-content: space-between;
+        color:var(--text-color-superlight);
+        padding:1rem;
+        background-color:var(--base-color);
+        span{
+            font-weight:bold;
+            margin:.1rem;
+        }
+    }
+}

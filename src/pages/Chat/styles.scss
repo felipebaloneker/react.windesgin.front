@@ -21,6 +21,7 @@
     background-color:var(--text-color);
     align-items: center;
     position: relative;
+    box-shadow: .1rem .1rem .1rem var(--shadow-color);
     button{
         all:unset;
         width: 100%;
