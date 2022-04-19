@@ -27,7 +27,7 @@ function Home(){
                         </div>
                     </div>
                 </section>
-                <section>
+                <section id='servicos'>
                     <div className="banner text_container">
                     <div className="banner_text ">
                         <h2>QUER IMPULSIONAR O CRESCIMENTO DO SEU NEGÓCIO? SOMOS A SOLUÇÃO.</h2>
