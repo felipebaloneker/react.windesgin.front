@@ -36,7 +36,7 @@ function Cadastro(){
                         value={email}
                         onChange={(e)=>setEmail(e.target.value)}/>
                         <label htmlFor="text">Senha:</label>
-                        <input type="text" value={password} onChange={(e)=>setPassword(e.target.value)} />
+                        <input type="password" value={password} onChange={(e)=>setPassword(e.target.value)} />
                         <button className='cad_btn'
                         onClick={createUser}
                         >Cadastrar</button>
