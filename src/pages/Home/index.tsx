@@ -1,7 +1,7 @@
 import './styles.scss'
 import '../../index.scss'
 import Header from '../../components/Header'
-import ServicesSlider from '../../components/ServicesSlider'
+import SolutionSlider from '../../components/SolutionSlider'
 const banner = require('../../assets/banner.jpg')
 
 function Home(){
@@ -33,8 +33,8 @@ function Home(){
                         <h2>QUER IMPULSIONAR O CRESCIMENTO DO SEU NEGÓCIO? SOMOS A SOLUÇÃO.</h2>
                     </div>
                     </div>
-                    <div className="services_container">
-                        <ServicesSlider/>
+                    <div className="solution_container">
+                        <SolutionSlider/>
                     </div>
                 </section>
             </main>
