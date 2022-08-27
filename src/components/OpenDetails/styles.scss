@@ -1,27 +1,87 @@
-.order_container{
-    display: grid;
-    grid-template-rows: 4rem 1fr;
-    .order_wrp{
-        padding:1rem;
+.details_container {
+  display: grid;
+  grid-template-rows: 4rem 1fr;
+  .details_wrp {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    .details_data {
+      margin-top: 1rem;
+    }
+    span {
+      color: var(--base-color);
+      font-weight: 500;
+    }
+  }
+  .details_header {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-color-superlight);
+    padding: 1rem;
+    background-color: var(--base-color);
+    span {
+      font-weight: bold;
+      margin: 0.1rem;
+    }
+  }
+  .modal_wrp {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: var(--overlay-color);
+    .modal_container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 30rem;
+      height: 20rem;
+      border-radius: 2rem;
+      background-color: var(--body-color);
+      div {
+        margin: 1rem;
+      }
+      .modal_main {
         display: flex;
         flex-direction: column;
-        .order_data{
-            margin-top:1rem;
+        label {
+          font-weight: bold;
+          font-size: 1.2rem;
+          color: var(--text-color);
         }
-        span{
-            color:var(--base-color);
-            font-weight: 500;
+        p {
+          margin-bottom: 1rem;
+          color: var(--highlight-color);
         }
+        select {
+          border: 0.1rem solid var(--highlight-color);
+          padding: 0.5rem;
+          border-radius: 2rem;
+        }
+      }
     }
-    .order_header{
-        display: flex;
-        justify-content: space-between;
-        color:var(--text-color-superlight);
-        padding:1rem;
-        background-color:var(--base-color);
-        span{
-            font-weight:bold;
-            margin:.1rem;
-        }
-    }
+  }
+  .button-primary {
+    all: unset;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin: 0.1rem;
+    background-color: var(--button-color-two);
+    border-radius: 1rem;
+    color: var(--text-color-superlight);
+  }
+  .button-secondary {
+    all: unset;
+    cursor: pointer;
+    padding: 0.5rem;
+    margin: 0.1rem;
+    background-color: var(--base-color);
+    border-radius: 1rem;
+    color: var(--text-color-superlight);
+  }
 }

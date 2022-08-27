@@ -1,41 +1,31 @@
 import UserHeader from "../../components/UserHeader";
-import "./styles.scss"
-import ListOrder from "../../components/ListOrder";
-import { useState } from "react";
-import NewOrder from "../../components/NewOrder";
+import "./styles.scss";
 import { useAuth } from "../../hooks/useAuth";
 import Header from "../../components/Header";
+import UserPainel from "../../components/UserPainel";
+import DirectorPainel from "../../components/DirectorPainel";
+import ManagerPainel from "../../components/ManagerPainel";
+import DesignPainel from "../../components/DesignPainel";
 
-function UserRoom(){
-  const [listOpen,setListOpen] = useState(true)
-  const {user} = useAuth()
-  const user_id = user?.id;
- if(user){
-  return(
-    <div className="user_painel">
-      {user? <UserHeader/>  : <Header/>}
-      <div className="painel_wrp">
-        <main>
-          <div className="user_btn">
-            <button className="painel_btn" onClick={()=>setListOpen(false)}>Novo Pedido</button>
-            <button className="painel_btn" onClick={()=>setListOpen(true)}>Meus Pedidos</button>
-          </div>
-          <div className="painel_container">
-              {listOpen?
-                <ListOrder/> 
-                :
-                <NewOrder/>
-              }
-          </div>
-        </main>
+function UserRoom() {
+  const { user } = useAuth();
+  if (user) {
+    return (
+      <div className="user_painel">
+        <UserHeader />
+        <div className="painel_wrp">
+          {user.type === "usuario" ? <UserPainel /> : ""}
+          {user.type === "gestor" ? <ManagerPainel /> : ""}
+          {user.type === "diretor" ? <DirectorPainel /> : ""}
+          {user.type === "design" ? <DesignPainel /> : ""}
+        </div>
       </div>
-    </div>
-)
- }
- return(
-   <>
-      <Header/>
-   </>
- )
+    );
+  }
+  return (
+    <>
+      <Header />
+    </>
+  );
 }
 export default UserRoom;

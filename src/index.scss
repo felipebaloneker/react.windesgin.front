@@ -5,22 +5,23 @@
 }
 body {
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--body-color) ;
+  background-color: var(--body-color);
 }
-:root{
-  --body-color:#E7E4E3;
-  --shadow-color:#3C3C3B;
-  --button-color:#3A7FFF;
-  --button-color-two:#7963E1;
-  --background-color:#3A7FFF;
-  --text-color-black:#3A7FFF;
-  --text-color:#495871;
-  --base-color:#495871;
-  --text-color-light:#5c5c5c;
-  --text-color-superlight:#fff;
-  --highlight-color:#1a3b77;
-  --header-background:#232A34;
+:root {
+  --body-color: #e7e4e3;
+  --shadow-color: #3c3c3b;
+  --overlay-color: #000000a2;
+  --button-color: #3a7fff;
+  --button-color-two: #7963e1;
+  --background-color: #3a7fff;
+  --text-color-black: #3a7fff;
+  --text-color: #495871;
+  --base-color: #495871;
+  --text-color-light: #5c5c5c;
+  --text-color-superlight: #fff;
+  --highlight-color: #1a3b77;
+  --header-background: #232a34;
 }

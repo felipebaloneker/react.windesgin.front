@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { UseCategoryList } from "../../hooks/useCategoryList";
-import { useOrders } from "../../hooks/useOrders";
+import { useAllOrders } from "../../hooks/useAllOrders";
 import Api from "../../services/Api";
 import "./styles.scss";
 
@@ -12,9 +12,9 @@ type Props = {
   id: string;
 };
 
-function ListOrder() {
+function ListAllOrders() {
   const { listCategory } = UseCategoryList();
-  const { orderList } = useOrders();
+  const { allOrderList } = useAllOrders();
   const navigate = useNavigate();
   const openOderClick = async (id: string) => {
     if (id!.trim() === "") {
@@ -41,15 +41,15 @@ function ListOrder() {
   };
 
   return (
-    <div className="listOrder">
+    <div className="listAllOrder">
       <div className="list_header">
         <h2>Meus Pedidos:</h2>
       </div>
       <div className="orders">
-        {orderList.length == 0 ? (
-          <p>Crie um novo pedido </p>
+        {allOrderList.length == 0 ? (
+          <p>Nenhum pedido no momento! </p>
         ) : (
-          orderList.map((item) => {
+          allOrderList.map((item: any) => {
             const [fulldate] = item.created_at.split("T");
             const [year, week, day] = fulldate.split("-");
             const date = `${day}/${week}/${year}`;
@@ -95,4 +95,4 @@ function ListOrder() {
     </div>
   );
 }
-export default ListOrder;
+export default ListAllOrders;
