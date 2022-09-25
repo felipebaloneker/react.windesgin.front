@@ -68,11 +68,8 @@ export function AuthContextProvider(props: AuthContextProps) {
         return;
       })
       .catch((err) => {
-        return err + "Usuario Invalido";
+        return 404;
       });
-    if (value === "Usuario Invalido") {
-      return window.alert(value);
-    }
     return value;
   }
 

@@ -54,6 +54,7 @@ export default {
         return res;
       })
       .catch((err) => {
+        console.log(err);
         return;
       });
     return list;

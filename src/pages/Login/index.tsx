@@ -3,7 +3,6 @@ import Header from "../../components/Header";
 import './styles.scss'
 import {useNavigate} from 'react-router-dom'
 import { useAuth } from "../../hooks/useAuth";
-import database from '../../services/database';
 import loginImg from '../../assets/login.jpg'
 
 function Login(){         
@@ -14,10 +13,12 @@ function Login(){
     const token = localStorage.getItem('token')
 
     const loginClick= async()=>{
-          await loginUser(email,password)
-          if(user && token !== undefined){
-            navigate('/meu-painel')
-            } 
+          await loginUser(email,password).then(function(res:any){
+            if(res === 404){return}
+            else{
+                return navigate('/meu-painel');
+            }
+          });
     }
 
     return(
