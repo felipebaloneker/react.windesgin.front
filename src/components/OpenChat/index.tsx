@@ -18,6 +18,7 @@ type Props ={
 function OpenChat(){
         // get user
         const {user} = useAuth()
+        const [name,] = user!.name!.split(' ')
         //get id of order and chat
         const params = useParams<Props>();
         const id = params.id
@@ -42,7 +43,7 @@ function OpenChat(){
         }
 
         const sendMessage= async()=>{
-            await Api.createMessage(chat_id,text,type)
+            await Api.createMessage(name,chat_id,text,type)
             .catch(err =>console.log(err))
             setText('')
         }
@@ -69,6 +70,7 @@ function OpenChat(){
                                 return(
                                     <MessageItem
                                     author={item.author_id}
+                                    author_name={item.author_name}
                                     message={item.body}
                                     time={item.created_at}
                                     type={item.type}

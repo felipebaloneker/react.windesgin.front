@@ -3,6 +3,7 @@ import Api from '../services/Api'
 type MessageProps = Record<string,{
     id:string;
     author_id:string;
+    author_name:string;
     chat_id:string;
     message:string;
     created_at:string;
@@ -14,6 +15,7 @@ type resProp = {
 type Message = {
     id:string;
     author_id:string;
+    author_name:string;
     chat_id:string;
     body:string;
     created_at:string;

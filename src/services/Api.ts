@@ -128,13 +128,28 @@ export default {
       });
     return user;
   },
-  findOrder: async (id: string) => {
+  findOrder: async (order_id: string) => {
     const token = localStorage.getItem("token")?.replace(/"/g, "");
     const order = await database
+    .get(`/order/list?order_id=${order_id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+    .then(function (res) {
+      return res;
+    })
+    .catch((err) => {
+      return err;
+    });
+    return order;
+  },
+  updateOrder: async (order_id: string, status:string) => {
+    const token = localStorage.getItem("token")?.replace(/"/g, "");
+    const user = await database
       .post(
-        `/chat/create/user`,
+        `/order/update`,
         {
-          id,
+          order_id,
+          status,
         },
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -142,17 +157,18 @@ export default {
         return res;
       })
       .catch((err) => {
-        return;
+        return err;
       });
-    return order;
+    return user;
   },
-  createMessage: async (chat_id: string, body: string, type: string) => {
+  createMessage: async (author_name:string,chat_id: string, body: string, type: string) => {
     const token = localStorage.getItem("token")?.replace(/"/g, "");
     const message = await database
       .post(
         `/chat/message`,
         {
           chat_id,
+          author_name,
           body,
           type,
         },

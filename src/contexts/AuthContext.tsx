@@ -45,7 +45,7 @@ export function AuthContextProvider(props: AuthContextProps) {
       });
       setUserToken(authToken);
     }
-  }, []);
+  },[]);
 
   async function loginUser(email: string, password: string) {
     const value = await database

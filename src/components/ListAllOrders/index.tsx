@@ -43,7 +43,7 @@ function ListAllOrders() {
   return (
     <div className="listAllOrder">
       <div className="list_header">
-        <h2>Meus Pedidos:</h2>
+        <h2>Demandas do Setor de Design:</h2>
       </div>
       <div className="orders">
         {allOrderList.length == 0 ? (

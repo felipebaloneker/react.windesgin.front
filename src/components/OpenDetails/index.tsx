@@ -2,7 +2,8 @@ import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
 import { UseCategoryList } from "../../hooks/useCategoryList";
-import { useOrders } from "../../hooks/useOrders";
+import { useGetOrder } from "../../hooks/useGetOrder";
+import Api from "../../services/Api";
 import "./styles.scss";
 
 type Props = {
@@ -17,10 +18,11 @@ function OpenDetails() {
   //get id of order and chat
   const params = useParams<Props>();
   const id = params.id;
-  const chat_id = id!.split("_")[1];
-  const { orderList } = useOrders();
+  const chat_order = id!.split("_")[0];
+  const { orderList } = useGetOrder(chat_order);
   const { listCategory } = UseCategoryList();
-  const statusType = ["em progresso", "concluido"];
+  const [status, setStatus] = useState('');
+
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
@@ -34,6 +36,12 @@ function OpenDetails() {
             return cat.name;
           }
         });
+        //
+        const changeOrderStatus = async () => {
+          await Api.updateOrder(chat_order,status);
+          window.location.reload();
+        }
+
         return (
           <div className="details_container" key={item.id}>
             <div className="details_header">
@@ -80,13 +88,17 @@ function OpenDetails() {
                     Atenção!! Despois que Alterar o status do pedido vc não
                     poderá alterar novamente.
                   </p>
-                  <select value={item.status}>
-                    <option value="em progresso">em progresso</option>
+                  <select
+                  onChange={event => setStatus(event.target.value)}
+                  >
+                    <option value="em progresso" selected>em progresso</option>
                     <option value="concluido">concluido</option>
                   </select>
                 </div>
                 <div className="modal_buttons">
-                  <button className="button-primary">Atualizar</button>
+                  <button className="button-primary"
+                  onClick={() => changeOrderStatus()}
+                  >Atualizar</button>
                   <button
                     className="button-secondary"
                     onClick={() => setModalOpen(false)}
