@@ -14,7 +14,7 @@ function Login(){
 
     const loginClick= async()=>{
           await loginUser(email,password).then(function(res:any){
-            if(res === 404){return}
+            if(res === 404){return window.alert('Email ou senha Invalidos');}
             else{
                 return navigate('/meu-painel');
             }
