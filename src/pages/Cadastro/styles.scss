@@ -1,72 +1,103 @@
-.main{
+.main {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  .image_banner {
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    img {
+      height: 100%;
+    }
+  }
+  .cadastro_wrp {
     width: 100%;
+    overflow: hidden;
+    max-width: 50rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    .image_banner{
-        height: 90vh;
-        display: flex;
+    justify-content: center;
+    grid-template-rows: 5rem 2rem 1fr 5rem;
+    flex-direction: column;
+    .cad_header {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      h2 {
+        font-size: 2rem;
+        color: var(--button-color);
+        font-weight: bold;
+      }
+      label {
+        color: var(--alert);
+        font-size: 1rem;
+      }
+    }
+    .type_card {
+      display: flex;
+      max-width: 50rem;
+      width: 100%;
+      .type_btn {
+        width: 7.95rem;
+        border-radius: 0rem 2rem 0rem 0;
+        border: 0.1rem solid var(--button-color);
         overflow: hidden;
-       justify-content: center;
-       align-items: center;
-       img{
-           height: 100%;
-       }
+        font-weight: 700;
+        button {
+          all: unset;
+          padding: 0.5rem;
+          color: var(--text-color-black);
+          font-size: 0.8rem;
+          transition: 0.5s ease;
+        }
+        button:hover {
+          background-color: var(--base-color);
+          color: var(--text-color-superlight);
+        }
+      }
     }
-    .cadastro_wrp{
-        width: 100%;
-        display: grid;
-        justify-content: center;
-        grid-template-rows: 5rem 1fr 5rem;
-        flex-direction: column;
-        .cad_header{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            h2{
-                font-size:2rem;
-                color:var(--button-color);
-                font-weight: bold;
-            }
-
-        }
-        .cad_main{
-            display: flex;
-            flex-direction: column;
-            justify-content: baseline;
-            padding:1rem;
-            label{
-                font-size: 1.2rem;
-                font-weight: 500;
-                color:var(--highlight-color)
-            }
-            input{
-                all:unset;
-                width:30rem;
-                height:1.5rem;
-                border:.009rem solid var(--highlight-color);
-                border-radius: 1rem;
-                margin-bottom:.5rem;
-                padding:.5rem;
-            }
-            button{
-                background-color: var(--button-color);
-                border:none;
-                padding:1rem;
-                color:var(--text-color-superlight);
-                font-weight: bold;
-                font-size: 1rem;
-                margin-top:1rem;
-                transition: .5s;
-                cursor: pointer;
-            }
-            button:hover{
-                background-color: var(--highlight-color);
-            }
-        }
-        .cad_footer{
-            a{
-                color:var(--text-color-black) ;
-            }
-        }
+    .cad_main {
+      display: flex;
+      flex-direction: column;
+      justify-content: baseline;
+      padding: 1rem;
+      border-top: 0.1rem solid var(--button-color);
+      border-radius: 0rem 2rem;
+      label {
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: var(--highlight-color);
+      }
+      input {
+        all: unset;
+        width: 30rem;
+        height: 1.5rem;
+        border: 0.009rem solid var(--highlight-color);
+        border-radius: 1rem;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+      }
+      button {
+        background-color: var(--button-color);
+        border: none;
+        padding: 1rem;
+        color: var(--text-color-superlight);
+        font-weight: bold;
+        font-size: 1rem;
+        margin-top: 1rem;
+        transition: 0.5s;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: var(--highlight-color);
+      }
     }
+    .cad_footer {
+      a {
+        color: var(--text-color-black);
+      }
+    }
+  }
 }

@@ -1,0 +1,77 @@
+.new_design {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--text-color-superlight);
+  border-radius: 1rem;
+  padding: 1.2rem;
+  .design_header {
+    width: 100%;
+    display: flex;
+    text-align: left;
+    h2 {
+      padding-bottom: 1rem;
+      color: var(--text-color-black);
+    }
+    .alert {
+      max-height: 2.5rem;
+      overflow: hidden;
+    }
+  }
+}
+.cadastro_wrp {
+  width: 40rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  flex-direction: column;
+  .container {
+    display: flex;
+    .wrp {
+      display: flex;
+      flex-direction: column;
+      label {
+        color: var(--text-color-light);
+      }
+      .name {
+        width: 33rem;
+      }
+      input {
+        all: unset;
+        min-width: 15rem;
+        margin: 1rem;
+        padding: 0.5rem;
+        border: 0.02rem solid var(--text-color-light);
+        border-radius: 0.5rem;
+        text-align: left;
+      }
+    }
+  }
+  input:first-child {
+    width: 33rem;
+  }
+  .buttons {
+    display: flex;
+    width: 90%;
+    padding-top: 1.5rem;
+    justify-content: space-between;
+    .cad_btn {
+      all: unset;
+      cursor: pointer;
+      padding: 1rem;
+      background-color: var(--button-color);
+      color: var(--text-color-superlight);
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+    }
+    .cad_btn:first-child {
+      background-color: var(--base-color);
+    }
+  }
+}
+label {
+  color: var(--alert);
+  font-size: 1rem;
+}
