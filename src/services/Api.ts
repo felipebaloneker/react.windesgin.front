@@ -5,7 +5,7 @@ type UserProps = {
   password: string
   type?: string
   phone: string
-  cpf: string
+  cpf?: string
   cnpj?: string
   juridico?: string
   birthday?: string

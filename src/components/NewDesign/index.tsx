@@ -13,6 +13,7 @@ function NewDesign() {
   const [address, setAddress] = useState("")
   const [msg, setMsg] = useState<Array<string>>([])
   const type = "desgin"
+
   const createNewDesign = async () => {
     const user = await Api.createUser({
       name,
@@ -26,6 +27,7 @@ function NewDesign() {
     })
     if (user) {
       setMsg([...msg, "Cadastrado com sucesso!"])
+      clearInputs()
     } else {
       setMsg([...msg, "Error ao Cadastrar!"])
     }
@@ -38,6 +40,7 @@ function NewDesign() {
     setEmail("")
     setPassword("")
     setPhone("")
+    setMsg([])
   }
 
   return (

@@ -12,6 +12,7 @@ function Cadastro() {
   const [passwordConfirm, setPasswordCorfim] = useState("")
   const [phone, setPhone] = useState("")
   const [cpf, setCpf] = useState("")
+  const [cnpj, setCnpj] = useState("")
   const [birthday, setBirthday] = useState("")
   const [address, setAddress] = useState("")
   const [errorMsg, setErrorMsg] = useState<Array<string>>([])
@@ -23,12 +24,15 @@ function Cadastro() {
     if (password !== passwordConfirm) {
       return setErrorMsg([...errorMsg, "Confirmação de senha não confere!!"])
     }
+    const juridic = juridico.toString()
     const user = await Api.createUser({
       name,
       email,
       password,
       phone,
       cpf,
+      cnpj,
+      juridico: juridic,
       birthday,
       address
     })
@@ -43,6 +47,7 @@ function Cadastro() {
     setAddress("")
     setBirthday("")
     setCpf("")
+    setCnpj("")
     setEmail("")
     setPassword("")
     setPhone("")
@@ -147,9 +152,9 @@ function Cadastro() {
                   <label htmlFor="">CNPJ:</label>
                   <input
                     type="text"
-                    value={cpf}
+                    value={cnpj}
                     required
-                    onChange={(e) => setCpf(e.target.value)}
+                    onChange={(e) => setCnpj(e.target.value)}
                   />
                 </div>
                 <div className="wrp">
@@ -257,7 +262,7 @@ function Cadastro() {
                   />
                 </div>
                 <div className="wrp">
-                  <label htmlFor="">Endereço</label>
+                  <label htmlFor="">Endereço:</label>
                   <input
                     type="text"
                     value={address}
