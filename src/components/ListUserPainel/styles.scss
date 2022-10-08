@@ -1,0 +1,22 @@
+.list_user {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--text-color-superlight);
+  border-radius: 1rem;
+  padding: 1.2rem;
+  .list_btn {
+    display: flex;
+    width: 100%;
+    justify-content: left;
+    .painel_btn {
+      border-radius: 2rem;
+      padding: 0.5rem;
+    }
+  }
+  .list_container {
+    display: flex;
+    width: 100%;
+  }
+}

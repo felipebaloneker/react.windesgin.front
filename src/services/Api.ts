@@ -103,6 +103,34 @@ export default {
       })
     return list
   },
+  listAllDesign: async () => {
+    const token = localStorage.getItem("token")?.replace(/"/g, "")
+    const list = await database
+      .get(`/users/list/employe`, {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      .then(function (res) {
+        return res
+      })
+      .catch((err) => {
+        return
+      })
+    return list
+  },
+  listAllUsers: async () => {
+    const token = localStorage.getItem("token")?.replace(/"/g, "")
+    const list = await database
+      .get(`/users/list/customer`, {
+        headers: { Authorization: `Bearer ${token}` }
+      })
+      .then(function (res) {
+        return res
+      })
+      .catch((err) => {
+        return
+      })
+    return list
+  },
   creatUserOrder: async (details: string, category_id: string) => {
     const token = localStorage.getItem("token")?.replace(/"/g, "")
     const order = await database
