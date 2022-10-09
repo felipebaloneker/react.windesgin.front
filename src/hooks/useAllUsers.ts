@@ -3,6 +3,7 @@ import Api from "../services/Api"
 type UsersProps = Record<
   string,
   {
+    id: string
     name: string
     email: string
     type: string
@@ -20,6 +21,7 @@ type resProp = {
   data: UsersProps
 }
 type Users = {
+  id: string
   name: string
   email: string
   type: string
