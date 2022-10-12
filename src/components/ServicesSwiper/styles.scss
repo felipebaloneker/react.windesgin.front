@@ -1,0 +1,35 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide,
+.color-two {
+  height: auto;
+  background-color: var(--background-color);
+  color: var(--text-color-superlight);
+  font-weight: 300;
+  font-size: 0.88rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  transition: 0.5s;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.title {
+  font-size: 1.07rem;
+  font-weight: bold;
+  margin-bottom: 0.7rem;
+  color: var(--text-color-superlight) !important;
+}
+.color-two {
+  background-color: var(--button-color-two);
+}
+.swiper-slide:hover {
+  background-color: var(--highlight-color);
+}
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--text-color-superlight);
+}
