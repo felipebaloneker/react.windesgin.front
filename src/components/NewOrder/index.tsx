@@ -34,6 +34,10 @@ function NewOrder() {
         <h2>
           Qual é a necessidade da sua Empresa:<span>(selecione)</span>
         </h2>
+        <p className="alert">
+          Atenção!!! O preço dos serviços podem mudar conforme o andamento do
+          projeto e a necessidade do cliente.
+        </p>
       </div>
       <div className="order_main">
         {/* Formulario de requerimento */}
@@ -53,6 +57,10 @@ function NewOrder() {
                   <label className="labelForm" htmlFor={category.name}>
                     <span>{category.name}:</span>
                     <br></br> {category.details}
+                    <br></br>
+                    <span className="price">
+                      Preço Inicial: R$ {category.price}
+                    </span>
                   </label>
                 </div>
               )

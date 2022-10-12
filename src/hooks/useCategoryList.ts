@@ -5,6 +5,7 @@ type Category = {
   id: string
   name: string
   details: string
+  price: string
   created_at: string
 }
 type resProp = {
