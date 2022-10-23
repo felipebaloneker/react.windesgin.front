@@ -65,7 +65,7 @@ function Charts() {
   const { allOrderList } = useAllOrders()
 
   allOrderList.map((item) => {
-    const [dd, month_item, yr] = item.completion_date.split("-")
+    const [dd, month_item, year_item] = item.completion_date.split("-")
     // Pie data
     if (Number(month_item) - 1 == date_month) {
       if (item.status == "em progresso") {
@@ -79,7 +79,7 @@ function Charts() {
       }
     }
     // line data
-    if (item.status == "concluido") {
+    if (item.status == "concluido" && year_item === `${year}`) {
       line_array[Number(month_item) - 1] = line_array[Number(month_item)] + 1
     }
   })
