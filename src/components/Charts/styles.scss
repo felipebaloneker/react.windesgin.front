@@ -1,0 +1,33 @@
+.painel_container {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+.relatory_main {
+  width: 100vw;
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+}
+.chart-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  width: 80vw;
+}
+.chart_wrp {
+  width: 100%;
+  padding: 0.5rem;
+}
+.chart_details {
+  background: white;
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+.chart_line {
+  width: 100%;
+  height: auto;
+}
+.chart_pie {
+  width: 10rem;
+  height: 10rem;
+}

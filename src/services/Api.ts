@@ -201,6 +201,9 @@ export default {
     return order
   },
   updateOrder: async (order_id: string, status: string) => {
+    if (status !== "concluido") {
+      return
+    }
     const token = localStorage.getItem("token")?.replace(/"/g, "")
     const user = await database
       .post(
@@ -208,6 +211,25 @@ export default {
         {
           order_id,
           status
+        },
+        { headers: { Authorization: `Bearer ${token}` } }
+      )
+      .then(function (res) {
+        return res
+      })
+      .catch((err) => {
+        return err
+      })
+    return user
+  },
+  updateOrderCompletion: async (order_id: string, completion_date: string) => {
+    const token = localStorage.getItem("token")?.replace(/"/g, "")
+    const user = await database
+      .post(
+        `/order/update/completion`,
+        {
+          order_id,
+          completion_date
         },
         { headers: { Authorization: `Bearer ${token}` } }
       )

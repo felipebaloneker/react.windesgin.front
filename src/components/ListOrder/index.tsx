@@ -57,8 +57,8 @@ function ListOrder() {
           {/* Filter Orders by progress */}
           <select onChange={(e) => setListType(e.target.value)}>
             <option selected>Selecione</option>
-            <option value="progress">Em andamento</option>
-            <option value="complete">Concluída</option>
+            <option value="em progresso">Em andamento</option>
+            <option value="concluido">Concluída</option>
           </select>
         </div>
       </div>
@@ -81,37 +81,39 @@ function ListOrder() {
                 return cat.name
               }
             })
-            return (
-              <div
-                className="order_container"
-                onClick={() => openOderClick(item.id)}
-                key={item.id}
-              >
-                <span className="order_type">{category}</span>
-                <div className="order_wrapper">
-                  <div className="order_wrp">
-                    <div className="order_data">
-                      <span>Id:</span>
-                      <p className="text">{item.id}</p>
+            if (listType == "Selecione" || listType == item.status) {
+              return (
+                <div
+                  className="order_container"
+                  onClick={() => openOderClick(item.id)}
+                  key={item.id}
+                >
+                  <span className="order_type">{category}</span>
+                  <div className="order_wrapper">
+                    <div className="order_wrp">
+                      <div className="order_data">
+                        <span>Id:</span>
+                        <p className="text">{item.id}</p>
+                      </div>
+                      <div className="order_data">
+                        <span>Detalhes:</span>
+                        <p className="text">{item.details}</p>
+                      </div>
                     </div>
-                    <div className="order_data">
-                      <span>Detalhes:</span>
-                      <p className="text">{item.details}</p>
-                    </div>
-                  </div>
-                  <div className="order_wrp">
-                    <div className="order_data">
-                      <span>Status:</span>
-                      <p>{item.status}</p>
-                    </div>
-                    <div className="order_data">
-                      <span className="text">Data de Criação:</span>
-                      <p className="text">{date}</p>
+                    <div className="order_wrp">
+                      <div className="order_data">
+                        <span>Status:</span>
+                        <p>{item.status}</p>
+                      </div>
+                      <div className="order_data">
+                        <span className="text">Data de Criação:</span>
+                        <p className="text">{date}</p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            )
+              )
+            }
           })
         )}
       </div>

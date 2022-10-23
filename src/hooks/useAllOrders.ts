@@ -8,6 +8,7 @@ type OrdersProps = Record<
     category_id: string
     status: string
     created_at: string
+    completion_date: string
   }
 >
 
@@ -20,6 +21,7 @@ type Orders = {
   category_id: string
   status: string
   created_at: string
+  completion_date: string
 }
 export function useAllOrders() {
   const [allOrderList, setList] = useState<Orders[]>([])

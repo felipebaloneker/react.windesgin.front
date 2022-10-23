@@ -2,10 +2,12 @@ import { useState } from "react"
 import ListAllOrders from "../ListAllOrders"
 import ListUserPainel from "../ListUserPainel"
 import NewDesign from "../NewDesign"
+import RelatoryPainel from "../RelatoryPainel"
 
 function ManagerPainel() {
   const [newDesign, setNewDesign] = useState(false)
   const [relatory, setRelatory] = useState(false)
+  const [orderList, setOrderList] = useState(false)
   const [userList, setUserList] = useState(true)
   return (
     <>
@@ -16,6 +18,7 @@ function ManagerPainel() {
             onClick={() => {
               setRelatory(false)
               setNewDesign(false)
+              setOrderList(false)
               setUserList(true)
             }}
           >
@@ -26,6 +29,7 @@ function ManagerPainel() {
             onClick={() => {
               setRelatory(false)
               setUserList(false)
+              setOrderList(false)
               setNewDesign(true)
             }}
           >
@@ -36,16 +40,29 @@ function ManagerPainel() {
             onClick={() => {
               setNewDesign(false)
               setUserList(false)
+              setRelatory(false)
+              setOrderList(true)
+            }}
+          >
+            Lista de Pedidos
+          </button>
+          <button
+            className="painel_btn"
+            onClick={() => {
+              setNewDesign(false)
+              setUserList(false)
+              setOrderList(false)
               setRelatory(true)
             }}
           >
-            Relatorio de Demandas
+            Relatorio de vendas
           </button>
         </div>
         <div className="painel_container">
           {newDesign ? <NewDesign /> : ""}
           {userList ? <ListUserPainel /> : ""}
-          {relatory ? <ListAllOrders /> : ""}
+          {orderList ? <ListAllOrders /> : ""}
+          {relatory ? <RelatoryPainel /> : ""}
         </div>
       </main>
     </>

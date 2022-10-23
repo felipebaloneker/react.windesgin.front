@@ -1,31 +1,38 @@
-import { useEffect, useState } from "react";
-import Api from "../services/Api";
-type OrdersProps = Record<string,{
-    id:string;
-    details:string,
-    category_id:string,
-    status:string,
-    created_at:string,
-}>
+import { useEffect, useState } from "react"
+import Api from "../services/Api"
+type OrdersProps = Record<
+  string,
+  {
+    id: string
+    details: string
+    category_id: string
+    status: string
+    created_at: string
+    completion_date: string
+  }
+>
 
 type resProp = {
-    data:OrdersProps;
+  data: OrdersProps
 }
 type Order = {
-    id:string;
-    details:string,
-    category_id:string,
-    status:string,
-    created_at:string,
+  id: string
+  details: string
+  category_id: string
+  status: string
+  created_at: string
+  completion_date: string
 }
-export function useGetOrder(id: string){
-    const [orderList,setList] = useState<Order[]>([])
-    useEffect(()=>{
-            Api.findOrder(id).then(function(item:resProp|any){
-                return setList(item.data)
-            })
-            .catch(err=>{return err})
-    },[])
-    return {orderList}
-
+export function useGetOrder(id: string) {
+  const [orderList, setList] = useState<Order[]>([])
+  useEffect(() => {
+    Api.findOrder(id)
+      .then(function (item: resProp | any) {
+        return setList(item.data)
+      })
+      .catch((err) => {
+        return err
+      })
+  }, [])
+  return { orderList }
 }
