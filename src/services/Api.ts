@@ -266,5 +266,32 @@ export default {
         return
       })
     return message
+  },
+  sendEmailPassword: async(
+    email:string
+  )=>{
+   const send = await database.post('/users/send_password',{
+      email,
+    })
+    .then(function (res) {
+      return res
+    })
+    .catch((err) => {
+      return console.log(err)
+    })
+  return send
+  },
+  resetPassword: async(id:string| undefined,password:string)=>{
+    const reset = await database.post('/users/reset_password',{
+      id,
+      password
+    })
+    .then(function (res) {
+      return res
+    })
+    .catch((err) => {
+      return err
+    })
+    return reset
   }
 }

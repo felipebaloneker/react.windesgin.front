@@ -8,6 +8,7 @@ import Cadastro from './pages/Cadastro';
 import UserRoom from './pages/UserRoom';
 import Chat from './pages/Chat';
 import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/recuperar-senha" element={<ForgotPassword/>}/>
           <Route path="/meu-painel" element={<UserRoom/>}/>
           <Route path="/room/:id" element={<Chat/>}/>
+          <Route path="/reset_password/:id" element={<ResetPassword/>}/>
         </Routes>
         </AuthContextProvider>
       </BrowserRouter>

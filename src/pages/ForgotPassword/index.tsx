@@ -1,11 +1,13 @@
 import { useState } from "react";
 import Header from "../../components/Header"
+import Api from "../../services/Api";
 import './styles.scss'
 
 function ForgotPassword(){
     const [email,setEmail] = useState('');
     const passwordReset= async()=>{
-        
+        Api.sendEmailPassword(email);
+        window.alert('Verifique sua Caixa de Email');
     }
     return(
         <div className="forgot">
