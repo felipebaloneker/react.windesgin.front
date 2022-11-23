@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Cadastro from './pages/Cadastro';
 import UserRoom from './pages/UserRoom';
 import Chat from './pages/Chat';
+import ForgotPassword from './pages/ForgotPassword';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<Home/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/cadastro" element={<Cadastro/>}/>
+          <Route path="/recuperar-senha" element={<ForgotPassword/>}/>
           <Route path="/meu-painel" element={<UserRoom/>}/>
           <Route path="/room/:id" element={<Chat/>}/>
         </Routes>

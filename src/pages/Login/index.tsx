@@ -51,9 +51,12 @@ function Login(){
                                 <button className='log_btn'
                                 onClick={loginClick}
                                 >Entrar</button>
-                            </div>
-                            <div className="login_footer">
-                                <a href="/cadastro">Não tem uma conta? Cadastre-se</a>
+                                <button className='log_btn_white'
+                                onClick={()=>{return navigate('/cadastro')}}
+                                >Registre-se</button>
+                                <div className="login_footer">
+                                    <a href="/recuperar-senha">Esqueceu sua Senha? clique aqui!</a>
+                                </div>
                             </div>
                         </div>
                     </div>

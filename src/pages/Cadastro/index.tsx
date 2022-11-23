@@ -56,7 +56,7 @@ function Cadastro() {
   return (
     <div className="cadastro">
       <Header />
-      <div className="main">
+      <div className="cad_main">
         <div className="image_banner">
           <img src={cadastro} alt="" />
         </div>

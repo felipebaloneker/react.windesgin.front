@@ -1,4 +1,4 @@
-.main {
+.cad_main {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -40,6 +40,7 @@
       max-width: 50rem;
       width: 100%;
       .type_btn {
+        display: flex;
         width: 7.95rem;
         border-radius: 0rem 2rem 0rem 0;
         border: 0.1rem solid var(--button-color);
